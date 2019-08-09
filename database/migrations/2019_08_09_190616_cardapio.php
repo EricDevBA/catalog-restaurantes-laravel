@@ -6,24 +6,18 @@ use Illuminate\Database\Migrations\Migration;
 
 class Cardapio extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
-        Schema::create('cardapio', function (Blueprint $table) {
+        Schema::create('menu', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name');
+            $table->float('price');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+
     public function down()
     {
         Schema::dropIfExists('cardapio');

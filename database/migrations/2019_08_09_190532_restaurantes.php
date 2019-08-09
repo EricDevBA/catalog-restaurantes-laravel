@@ -6,24 +6,18 @@ use Illuminate\Database\Migrations\Migration;
 
 class Restaurantes extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
-        Schema::create('restaurantes', function (Blueprint $table) {
+        Schema::create('restaurant', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name');
+            $table->string('adress');
+            $table->string('description');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('restaurantes');

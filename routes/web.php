@@ -11,6 +11,12 @@
 |
 */
 
+Route::prefix('admin')->group(function () {
+    Route::get('restaurant', 'Admin\\RestaurantController@index');
+    Route::get('restaurants/new', 'Admin\\RestaurantController@store');
+    });
+
+
 Route::get('/', function () {
     return view('welcome');
 });
