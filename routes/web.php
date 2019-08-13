@@ -13,7 +13,8 @@
 
 Route::prefix('admin')->group(function () {
     Route::get('restaurant', 'Admin\\RestaurantController@index');
-    Route::get('restaurants/new', 'Admin\\RestaurantController@store');
+    Route::get('restaurants/new', 'Admin\\RestaurantController@new')->name('restaurant.new');
+    Route::post('restaurants/new', 'Admin\\RestaurantController@store')->name('restaurant.store');
     });
 
 

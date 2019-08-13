@@ -7,17 +7,26 @@ use App\Http\Controllers\Controller;
 
 class RestaurantController extends Controller
 {
-    public function index () {
+    public function index ()
+    {
 
         return __CLASS__;
 
     }
 
-    public function store() {
+    public function new()
+    {
 
         return view('admin.restaurants.store');
 
     }
+
+    public function store(Request $request)
+    {
+        dd($request)->all();
+
+    }
+
 
 
 
