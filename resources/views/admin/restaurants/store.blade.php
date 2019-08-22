@@ -13,7 +13,7 @@
 
     <p>
         <label>Endereço</label>
-        <input type="text" name="adress">
+        <input type="text" name="address">
 
     </p>
 
