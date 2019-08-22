@@ -4,22 +4,30 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Restaurantes extends Migration
+class CreateTableCardapio extends Migration
 {
-
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
     public function up()
     {
-        Schema::create('restaurant', function (Blueprint $table) {
+        Schema::create('menu', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('adress');
-            $table->string('description');
+            $table->float('price');
             $table->timestamps();
         });
     }
 
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
-        Schema::dropIfExists('restaurantes');
+        Schema::dropIfExists('cardapio');
     }
 }

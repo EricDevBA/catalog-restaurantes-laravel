@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Restaurant;
 
 class RestaurantController extends Controller
 {
@@ -23,7 +24,12 @@ class RestaurantController extends Controller
 
     public function store(Request $request)
     {
-        dd($request)->all();
+        $restaurantData = $request->all();
+
+        $restaurant = new Restaurant();
+        $restaurant->create($restaurantData);
+
+        print "Restaurante criado com sucesso!";
 
     }
 
