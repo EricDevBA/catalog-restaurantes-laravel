@@ -33,6 +33,29 @@ class RestaurantController extends Controller
 
     }
 
+    public function edit (Restaurant $restaurant) {
+
+        return view('admin.restaurants.edit',compact('restaurant'));
+    }
+
+    public function update(Request $request, $id) {
+
+        $restaurantData = $request->all();
+
+
+        $restaurant = Restaurant::findOrfail($id);
+        $restaurant->update($restaurantData);
+
+        print "Restaurante atualizado com sucesso!";
+
+
+        //return __METHOD__;
+
+    }
+
+
+
+
 
 
 
