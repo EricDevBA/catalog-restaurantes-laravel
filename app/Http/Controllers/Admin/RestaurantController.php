@@ -11,7 +11,9 @@ class RestaurantController extends Controller
     public function index ()
     {
 
-        return __CLASS__;
+        $restaurants = Restaurant::all();
+        return view('admin.restaurants.index', compact('restaurants'));
+
 
     }
 
@@ -48,8 +50,17 @@ class RestaurantController extends Controller
 
         print "Restaurante atualizado com sucesso!";
 
+    }
 
-        //return __METHOD__;
+    public function delete($id) {
+
+        $restaurant = Restaurant::findOrfail($id);
+        $restaurant->delete();
+
+        print "Restaurante excluído com sucesso!";
+
+
+
 
     }
 
