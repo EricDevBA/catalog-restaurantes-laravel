@@ -1,3 +1,10 @@
+<h1>Restaurantes</h1>
+
+<hr>
+
+<a href="{{route('restaurant.new')}}">Novo</a>
+<br>
+
 <table>
     <thead>
         <tr>
