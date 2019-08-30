@@ -16,9 +16,9 @@ class RestaurantRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'address' => 'required',
-            'description' => 'required',
+            'name' => 'required|min:5',
+            'address' => 'required|min:5',
+            'description' => 'required|min:5',
         ];
     }
 }
