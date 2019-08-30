@@ -29,7 +29,7 @@ class RestaurantController extends Controller
     {
         $restaurantData = $request->all();
 
-        $validator = $request->validated();
+         $request->validated();
 
         $restaurant = new Restaurant();
         $restaurant->create($restaurantData);
@@ -43,10 +43,11 @@ class RestaurantController extends Controller
         return view('admin.restaurants.edit',compact('restaurant'));
     }
 
-    public function update(Request $request, $id) {
+    public function update(RestaurantRequest $request, $id) {
 
         $restaurantData = $request->all();
 
+        $request->validated();
 
         $restaurant = Restaurant::findOrfail($id);
         $restaurant->update($restaurantData);

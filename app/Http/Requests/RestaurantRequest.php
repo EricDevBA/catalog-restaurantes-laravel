@@ -21,4 +21,18 @@ class RestaurantRequest extends FormRequest
             'description' => 'required|min:5',
         ];
     }
+
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'O Campo é obrigatório',
+            'address.required' => 'O Campo é obrigatório',
+            'description.required' => 'O Campo é obrigatório',
+            '*.min' => 'A quantidade mínima de caracteres é 5 (cinco)'
+        ];
+    }
+
+
+
 }
