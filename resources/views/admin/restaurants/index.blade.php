@@ -6,7 +6,6 @@
 
     <h1 class="text-center">Restaurantes</h1>
 
-
 <br>
 
 <table class="table table-striped">

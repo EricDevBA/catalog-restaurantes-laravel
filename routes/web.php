@@ -13,7 +13,7 @@
 
 Route::group(['middleware' => ['auth']], function () {
     Route::prefix('admin')->group(function () {
-        Route::get('restaurants', 'Admin\\RestaurantController@index');
+        Route::get('restaurants', 'Admin\\RestaurantController@index')->name('restaurant');
         Route::get('restaurants/new', 'Admin\\RestaurantController@new')->name('restaurant.new');
         Route::post('restaurants/new', 'Admin\\RestaurantController@store')->name('restaurant.store');
         Route::get('restaurants/edit/{restaurant}', 'Admin\\RestaurantController@edit')->name('restaurant.edit');

@@ -1,39 +1,55 @@
-<h1>Edição de Restaurantes</h1>
+@extends('layouts.app')
+@section('content')
+
+<div class="container">
+<h1 class="text-center">Edição de Restaurantes</h1>
 
 <hr>
 
 <form action="{{route('restaurant.update',['id' => $restaurant->id])}}"  method="post">
     {{ csrf_field() }}
 
-    <p>
+    <p class="form-group">
         <label>Nome do Restaurante</label>
-        <input type="text" name="name" value="{{$restaurant->name}}"> <br>
+        <input type="text" name="name" class="form-control @if($errors->has('name')) is-invalid @endif" value="{{$restaurant->name}}"> <br>
+
         @if($errors->has('name'))
-            {{$errors->first('name')}}
+        <span class="invalid-feedback">
+            <strong>{{$errors->first('name')}}</strong>
+        </span>
      @endif
 
     </p>
 
-    <p>
+    <p class="form-group">
         <label>Endereço</label>
-        <input type="text" name="address" value="{{$restaurant->address}}">
+        <input type="text" name="address" class="form-control @if($errors->has('address')) is-invalid @endif" value="{{$restaurant->address}}">
+
     @if($errors->has('address'))
-            {{$errors->first('address')}}
+         <span class="invalid-feedback">
+            <strong>{{$errors->first('address')}}</strong>
+        </span>
      @endif
 
     </p>
 
-    <p>
+    <p class="form-group">
         <label>Deixe seu comentário</label><br>
-        <textarea name="description" id="" cols="30" rows="10">{{$restaurant->description}}</textarea> <br>
+        <textarea name="description" id="" cols="30" class="form-control  @if($errors->has('description')) is-invalid @endif">{{$restaurant->description}}</textarea> <br>
      @if($errors->has('description'))
-            {{$errors->first('description')}}
+         <span class="invalid-feedback">
+            <strong>{{$errors->first('description')}}</strong>
+        </span>
      @endif
-
 
     </p>
 
-    <input type="submit" value="Atualizar">
+    <input type="submit" class="btn btn-success" value="Atualizar">
+    <a href="{{route('restaurant')}}" class="btn btn-primary">Voltar</a>
 
+
+</div>
 
 </form>
+
+@endsection
