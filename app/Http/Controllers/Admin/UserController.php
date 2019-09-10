@@ -8,17 +8,15 @@ use App\User;
 
 class UserController extends Controller
 {
-    public function index ()
+    public function index()
     {
 
         $user = User::all();
         return view('admin.users.index', compact('users'));
 
-
     }
 
-    public function new()
-    {
+    function new () {
 
         return view('admin.users.store');
 
@@ -28,7 +26,9 @@ class UserController extends Controller
     {
         $userData = $request->all();
 
-         $request->validated();
+        $request->validated();
+
+        $userData['password'] = bcrypt($userData['password']);
 
         $user = new User();
         $user->create($userData);
@@ -37,16 +37,23 @@ class UserController extends Controller
 
     }
 
-    public function edit (User $user) {
+    public function edit(User $user)
+    {
 
-        return view('admin.users.edit',compact('restaurant'));
+        return view('admin.users.edit', compact('user'));
     }
 
-    public function update(UserRequest $request, $id) {
+    public function update(UserRequest $request, $id)
+    {
 
         $userData = $request->all();
 
         $request->validated();
+
+        if($userData['password'])
+        {
+            $userData['password'] = bcrypt($userData['password']);
+        }
 
         $user = User::findOrfail($id);
         $userData->update($userData);
@@ -55,22 +62,14 @@ class UserController extends Controller
 
     }
 
-    public function delete($id) {
+    public function delete($id)
+    {
 
         $user = User::findOrfail($id);
         $user->delete();
 
         print "Usuário excluído com sucesso!";
 
-
-
-
     }
-
-
-
-
-
-
 
 }
