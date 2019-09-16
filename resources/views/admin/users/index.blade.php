@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <a href="{{route('users.new')}}" class="float-right btn btn-success">Novo</a><br>
+    <a href="{{route('user.new')}}" class="float-right btn btn-success">Novo</a><br>
 
     <h1 class="text-center">Usuários</h1>
 

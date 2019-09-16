@@ -12,7 +12,9 @@
  */
 
 Route::group(['middleware' => ['auth']], function () {
+
     Route::prefix('admin')->namespace('Admin')->group(function () {
+
         Route::prefix('restaurants')->group(function () {
             Route::get('/', 'RestaurantController@index')->name('restaurant');
             Route::get('new', 'RestaurantController@new')->name('restaurant.new');
@@ -24,7 +26,7 @@ Route::group(['middleware' => ['auth']], function () {
         });
 
         Route::prefix('users')->group(function () {
-            Route::get('/', 'UserController@index')->name('user');
+            Route::get('/', 'UserController@index')->name('user.index');
             Route::get('new', 'UserController@new')->name('user.new');
             Route::post('store', 'UserController@store')->name('user.store');
             Route::get('edit/{user}', 'UserController@edit')->name('user.edit');
@@ -32,6 +34,7 @@ Route::group(['middleware' => ['auth']], function () {
             Route::get('remove/{id}', 'UserController@delete')->name('user.remove');
 
         });
+
     });
 });
 
