@@ -6,7 +6,7 @@
 
 <hr>
 
-<form action="{{route('user.edit')}}"  method="post">
+<form action="{{route('user.update',['id' => $user->id])}}"  method="post">
     {{ csrf_field() }}
 
     <p class="form-group">
@@ -55,7 +55,7 @@
     </p>
 
 
-    <input type="submit" class="btn btn-success" value="Atualizar">
+    <input type="submit" class="btn btn-success" value="Atualizar Usuário">
     <a href="{{route('restaurant')}}" class="btn btn-primary">Voltar</a>
 
     </form>
