@@ -33,7 +33,9 @@ class UserController extends Controller
         $user = new User();
         $user->create($userData);
 
-        print "Usuário criado com sucesso!";
+        flash('Usuário criado com sucesso!')->success();
+        return redirect()->route('user.index');
+
 
     }
 
@@ -58,7 +60,11 @@ class UserController extends Controller
         $user = User::findOrfail($id);
         $userData->update($userData);
 
-        print "Usuário atualizado com sucesso!";
+        flash('Usuário atualizado com sucesso!')->success();
+        return redirect()->route('user.update', ['user' => $id]);
+
+
+
 
     }
 
