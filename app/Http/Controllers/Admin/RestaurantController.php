@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RestaurantRequest;
 use App\Restaurant;
+use Illuminate\Mail\Message;
 
 class RestaurantController extends Controller
 {
@@ -33,7 +34,8 @@ class RestaurantController extends Controller
         $restaurant = new Restaurant();
         $restaurant->create($restaurantData);
 
-        print "Restaurante criado com sucesso!";
+        flash('Restaurante criado com sucesso!')->success();
+        return redirect()->route('restaurant');
 
     }
 
@@ -51,7 +53,8 @@ class RestaurantController extends Controller
         $restaurant = Restaurant::findOrfail($id);
         $restaurant->update($restaurantData);
 
-        print "Restaurante atualizado com sucesso!";
+        flash('Restaurante atualizado com sucesso!')->success();
+        return redirect()->route('restaurant.edit', ['restaurant' => $id]);
 
     }
 
@@ -60,10 +63,8 @@ class RestaurantController extends Controller
         $restaurant = Restaurant::findOrfail($id);
         $restaurant->delete();
 
-        print "Restaurante excluído com sucesso!";
-
-
-
+        flash('Restaurante removido com sucesso!')->success();
+        return redirect()->route('restaurant');
 
     }
 

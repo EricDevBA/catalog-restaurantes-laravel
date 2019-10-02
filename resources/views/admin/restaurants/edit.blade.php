@@ -45,7 +45,7 @@
     </p>
 
     <input type="submit" class="btn btn-success" value="Atualizar">
-    <a href="{{route('restaurant')}}" class="btn btn-primary">Voltar</a>
+    <a class="btn btn-primary" href="{{ route('restaurant') }}" role="button">Voltar</a><br>
 
 
 </div>
